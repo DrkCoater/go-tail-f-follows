@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>WebSocket Test</title>
+  </head>
+  <body>
+      <script>
+        var ws = new WebSocket('ws://localhost:8000/ws');
+        ws.onopen = function(event) {
+                console.log('Connection is open ...');
+              };
+
+        ws.onerror = function(err) {
+                console.log('err: ', err, err.toString());
+              };
+
+        // Event handler for receiving text from the server
+        ws.onmessage = function(event) {
+                console.log('Received: ' + event.data);
+              };
+
+        ws.onclose = function() {
+                console.log('Connection is closed...');
+              };
+        </script>
+  </body>
+</html>
