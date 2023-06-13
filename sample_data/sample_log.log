@@ -401,3 +401,6 @@ source=9.67.116.98:8000] ceased
 03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 3
 03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 3
 03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 5
+03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 6
+03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 7
+03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 8

@@ -25,3 +25,10 @@ gopcanclient
 # frontend
 dist/
 node_modules/
+
+.DS_Store
+.vscode
+node_modules
+dist
+*.log
+.cache
