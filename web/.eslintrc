@@ -1,0 +1,28 @@
+{
+    "parser": "@babel/eslint-parser",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "16.14"
+        }
+    },
+    "rules": {
+        "prettier/prettier": ["error"],
+        "prefer-const": ["warn"],
+        "no-console": ["error"],
+        "no-debugger": ["error"],
+        "strict": ["error", "never"],
+        "curly": ["error", "all"],
+        "object-curly-spacing": ["error", "always"],
+        "comma-dangle": ["error", "never"],
+        "react/jsx-uses-react": ["error"],
+        "react/prop-types": "off",
+        "react/jsx-uses-vars": ["error"],
+        "react/react-in-jsx-scope": ["error"]
+    },
+    "plugins": ["prettier", "react"]
+}
