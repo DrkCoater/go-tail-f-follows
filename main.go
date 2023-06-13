@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
@@ -13,9 +14,9 @@ import (
 )
 
 type Todo struct {
-	ID        string `json:"id,omitempty"`
-	Task      string `json:"task,omitempty"`
-	Completed bool   `json:"completed,omitempty"`
+	ID        string `json:"id"`
+	Task      string `json:"task"`
+	Completed bool   `json:"completed"`
 }
 
 var todos []Todo
@@ -133,10 +134,7 @@ func (b *Broadcaster) initialRead(client *Client, filePath string, n int) {
 		log.Println(err)
 		return
 	}
-
-	for _, line := range lines {
-		b.broadcast <- line
-	}
+	client.send <- []byte(strings.Join(lines, "\n"))
 }
 
 func handleWebSocketConnection(b *Broadcaster, filePath string, n int) http.HandlerFunc {
@@ -217,5 +215,4 @@ func main() {
 	router.HandleFunc("/todos/{id}", CreateTodoEndpoint).Methods("POST")
 	router.HandleFunc("/todos/{id}", DeleteTodoEndpoint).Methods("DELETE")
 	log.Fatal(http.ListenAndServe(":8000", router))
-	// Original map
 }
